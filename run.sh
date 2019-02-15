@@ -4,4 +4,5 @@ cd build
 make
 make install
 cd ../bin
-./yam-cat.out
+printf "Runnning Program: \n\n"
+./YAMBASIC.out
