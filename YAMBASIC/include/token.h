@@ -1,63 +1,49 @@
 #ifndef YAMBASIC_TOKEN_H
 #define YAMBASIC_TOKEN_H
+#include <string>
 namespace yambasic{
 
-#include <string>
-
-
 enum TokenType {
-
 	//Single Characters
-	LEFT_PAREN, RIGHT_PAREN, LEFT_BRACE, RIGHT_BRACE, COMMA, DOT, MINUS, PLUS,
-	SEMICOLON, SLASH, START
-
+	TOK_LEFT_PAREN, TOK_RIGHT_PAREN, TOK_LEFT_BRACE, TOK_RIGHT_BRACE, TOK_COMMA,
+	TOK_DOT, TOK_MINUS, TOK_PLUS, TOK_SLASH, TOK_STAR, TOK_CARET,
 	//Single or Double Character
-	EQUAL, NOT_EQUAL, GREATER, GREATER_EQUAL, LESS, LESS_EQUAL,
-
+	TOK_EQUAL, TOK_NOT_EQUAL, TOK_GREATER, TOK_GREATER_EQUAL, TOK_LESS,
+	TOK_LESS_EQUAL,
 	//Literals
-	IDENTIFIER, STRING, NUMBER,
-
+	// note variable names only read the first 2 characters as IDENTIFIER
+	TOK_IDENTIFIER, TOK_STRING, TOK_REAL, TOK_INTEGER,
 	//Reserved Keywords
-
 	//operators
-	AND, OR, NOT,
-
+	TOK_AND, TOK_OR, TOK_NOT,
 	//control
-	GOTO, IF, THEN, FOR, TO, NEXT, GOSUB, RETURN, POP, STOP, CON, END,
-
-	//built in functions
-	FUNC,
+	TOK_GOTO, TOK_IF, TOK_THEN, TOK_FOR, TOK_TO, TOK_NEXT, TOK_GOSUB, TOK_RETURN,
+	TOK_POP, TOK_STOP, TOK_CONT, TOK_END,
 
 	//endings and markers
-	EOS, // end of statement
-	EOF, // end of file
-	REM, // comment
+	TOK_REM, // comment
+	TOK_EOS, // end of statement
+	TOK_EOL, // end of line
+	TOK_EOF // end of file
+};
 
-}
 
-}
 
 class Token {
 
 private:
 
 public:
-	TokenType type;
-	string lexeme;
-	void * literal;
-	int line;
+	TokenType type_;
+	std::string lexeme_;
+	int line_;
 
+	Token(TokenType type, std::string lexeme, int line);
+	std::string ToString();
 
-	Token(TokenType type, string lexeme, void * literal, int line);
-
-	
-
+};
 
 
 
 }
-
-
-
-
 #endif

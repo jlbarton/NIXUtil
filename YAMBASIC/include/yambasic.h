@@ -3,16 +3,5 @@
 namespace yambasic{
 
 
-int gogo(void);
-
-
-
-
-
-
-
-
-
-
 }
 #endif
