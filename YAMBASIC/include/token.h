@@ -12,7 +12,7 @@ enum TokenType {
 	TOK_LESS_EQUAL,
 	//Literals
 	// note variable names only read the first 2 characters as IDENTIFIER
-	TOK_IDENTIFIER, TOK_STRING, TOK_REAL, TOK_INTEGER,
+	TOK_IDENTIFIER, TOK_STRING, TOK_FLOAT, TOK_INTEGER,
 	//Reserved Keywords
 	//operators
 	TOK_AND, TOK_OR, TOK_NOT,
@@ -24,7 +24,8 @@ enum TokenType {
 	TOK_REM, // comment
 	TOK_EOS, // end of statement
 	TOK_EOL, // end of line
-	TOK_EOF // end of file
+	TOK_EOF, // end of file
+	TOK_ILLEGAL // illegal or unknown token/character
 };
 
 

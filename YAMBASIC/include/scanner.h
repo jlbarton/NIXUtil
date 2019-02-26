@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include <map>
 #include <token.h>
 namespace yambasic{
 
@@ -19,14 +20,20 @@ private:
 
 
 	void ScanToken();
-	char advance();
-	char peek();
-	void addToken(TokenType type);
+	void Retreat();
+	char Advance();
+	char Peek();
+	char PeekNext();
+	void AddToken(TokenType type);
 	bool IsAtEnd();
+	void GetIdentifier();
+	void GetNumber(char c);
+	void GetString();
 
 
 
 public:
+	static std::map<std::string,TokenType> keywords;
 	Scanner(std::string source);
 	std::vector<Token> ScanTokens();
 

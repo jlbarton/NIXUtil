@@ -12,7 +12,7 @@
 int main(int argc, char * arv[]) {
 
 
-	std::string test = "(){},.+-*/";
+	std::string test = "(){},.+-*/:= => =< < <> >< <= >= \nAND OR NOT PRINT ? A3 AB B6 Z \n R5=B 33 .1 3.6 .2.2 53.5.";
 	yambasic::Scanner tscanner(test);
 	std::vector<yambasic::Token> tokens = tscanner.ScanTokens();
 
